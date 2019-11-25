@@ -2,7 +2,7 @@ package com.company.StockItems;
 
 public class Resistor extends StockItem
 {
-public static final String name = "RESISTOR";
+public static final String NAME = "Resistor";
 
     public Resistor(String stockCode, String noOfItems, String price, String extraInfo) {
         super(stockCode, noOfItems, price, extraInfo);
@@ -12,7 +12,7 @@ public static final String name = "RESISTOR";
     @Override
     public String toString()
     {
-        return super.toString() +"\u03A9";
+        return this.NAME +": "+super.toString() +"\u03A9 \n";
     }
 
 }

@@ -1,8 +1,5 @@
 package com.company;
-
-import com.company.StockItems.Capacitor;
-import com.company.StockItems.Resistor;
-import com.company.StockItems.StockItem;
+import com.company.StockItems.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,14 +8,23 @@ import java.util.Scanner;
 
 public class Inventory {
     private ArrayList<Resistor> resistorList;
-    private ArrayList<Capacitor> CapacitorList;
-    private ArrayList<Resistor> resistorList;
+    private ArrayList<Capacitor> capacitorList;
+    private ArrayList<Diode> diodeList;
+    private ArrayList<IC> icList;
+    private ArrayList<Transistor> transistorList;
     private ArrayList<StockItem> stockItemList;
     private File file;
 
     public Inventory(File file)
     {
         resistorList = new ArrayList<Resistor>();
+        capacitorList = new ArrayList<Capacitor>();
+        diodeList = new ArrayList<Diode>();
+        icList = new ArrayList<IC>();
+        transistorList = new ArrayList<Transistor>();
+        stockItemList = new ArrayList<StockItem>();
+
+
         this.file = file;
         loadFile();
     }
@@ -35,7 +41,13 @@ public class Inventory {
                 createObject(temp);
             }
             sc.close();
-            System.out.println(resistorList);
+            stockItemList.addAll(resistorList);
+            stockItemList.addAll(capacitorList);
+            stockItemList.addAll(diodeList);
+            stockItemList.addAll(icList);
+            stockItemList.addAll(transistorList);
+
+            System.out.println(stockItemList);
         }
         catch(FileNotFoundException e)
         {
@@ -86,11 +98,21 @@ public class Inventory {
             case "resistor":
                 resistorList.add(new Resistor(id,noOfItems,price,info));
                 break;
+            case "capacitor":
+                capacitorList.add(new Capacitor(id,noOfItems,price,info));
+                break;
+            case "diode":
+                diodeList.add(new Diode(id,noOfItems,price,info));
+                break;
+            case "IC":
+                icList.add(new IC(id,noOfItems,price,info));
+                break;
+            case "transistor":
+                transistorList.add(new Transistor(id,noOfItems,price,info));
+                break;
             default:
                 //System.out.println("Type " + type + " Not found");
                 break;
-
-
 
         }
         //File reader test:
