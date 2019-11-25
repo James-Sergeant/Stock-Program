@@ -1,8 +1,17 @@
-package com.company;
+/*      * Project           : Basic Inventroy System
+        *
+        * Program name      : StockProgram.java
+        *
+        * Author            : afa19aeu
+        *
+        * Date created      : 25/11/19
+        *
 
+        * Purpose           : To allow the user to import an inventory of items with a text file.
+*/
+
+package com.company;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public class StockProgram
 {
