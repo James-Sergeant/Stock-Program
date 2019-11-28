@@ -15,7 +15,7 @@ import java.io.File;
 
 public class StockProgram
 {
-    public static final File file = new File( "src/com/company/inventory.txt");
+    public static final File file = new File( "inventory.txt");
     //Creates a array list of items
     public static void main(String[] args)
     {

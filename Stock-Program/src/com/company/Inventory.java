@@ -41,11 +41,6 @@ public class Inventory {
                 createObject(temp);
             }
             sc.close();
-            stockItemList.addAll(resistorList);
-            stockItemList.addAll(capacitorList);
-            stockItemList.addAll(diodeList);
-            stockItemList.addAll(icList);
-            stockItemList.addAll(transistorList);
 
             System.out.println(stockItemList);
         }
@@ -55,6 +50,11 @@ public class Inventory {
             e.printStackTrace();
             System.err.println(file.getAbsolutePath());
         }
+        stockItemList.addAll(resistorList);
+        stockItemList.addAll(capacitorList);
+        stockItemList.addAll(diodeList);
+        stockItemList.addAll(icList);
+        stockItemList.addAll(transistorList);
     }
 
     //Used to create the objects for the different types of Stock Item
@@ -117,5 +117,12 @@ public class Inventory {
         }
         //File reader test:
         //System.out.println(type +" "+id+" "+noOfItems+" "+price+" "+info);
+    }
+    public void getNPN(){
+        for (Transistor i: transistorList ){
+            if(i.getInfo().equals("NPN")){
+                System.out.println(i);
+            }
+        }
     }
 }

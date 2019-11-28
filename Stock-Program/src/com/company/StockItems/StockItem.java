@@ -26,4 +26,9 @@ public class StockItem
     {
         return price;
     }
+    public String getInfo()
+    {
+        return extraInfo;
+    }
+
 }
