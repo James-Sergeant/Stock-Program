@@ -41,8 +41,6 @@ public class Inventory {
                 createObject(temp);
             }
             sc.close();
-
-            System.out.println(stockItemList);
         }
         catch(FileNotFoundException e)
         {
@@ -117,6 +115,13 @@ public class Inventory {
         }
         //File reader test:
         //System.out.println(type +" "+id+" "+noOfItems+" "+price+" "+info);
+    }
+
+    //Task Answers:
+    //1:
+    public void sortInvent(){
+        System.out.println( MergeSort.sort(stockItemList));
+
     }
     public void getNPN(){
         for (Transistor i: transistorList ){

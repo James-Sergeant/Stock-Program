@@ -1,6 +1,6 @@
 package com.company.StockItems;
 
-public class StockItem
+public class StockItem implements Comparable<StockItem>
 {
    protected String stockCode, extraInfo;
     protected int noOfItems, price;
@@ -31,4 +31,10 @@ public class StockItem
         return extraInfo;
     }
 
+    @Override
+    public int compareTo(StockItem i) {
+        if(this.getPrice() < i.getPrice()) return -1;
+        if(this.getPrice() > i.getPrice()) return 1;
+        else return 0;
+    }
 }

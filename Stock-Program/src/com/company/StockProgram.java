@@ -19,9 +19,9 @@ public class StockProgram
     //Creates a array list of items
     public static void main(String[] args)
     {
+
         Inventory iv = new Inventory(file);
+        iv.sortInvent();
     }
-
-
 
 }
