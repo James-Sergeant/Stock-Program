@@ -12,4 +12,8 @@ public class Transistor extends StockItem {
         return this.NAME +": "+ super.toString() + "\n";
     }
 
+    public String getName(){
+        return this.NAME;
+    }
+
 }

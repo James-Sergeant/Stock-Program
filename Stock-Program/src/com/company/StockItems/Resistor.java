@@ -15,5 +15,14 @@ public static final String NAME = "Resistor";
         return this.NAME +": "+super.toString() +"\u03A9 \n";
     }
 
+    public String getName(){
+        return this.NAME;
+    }
+
+    public double totalResistnace(){
+        double resistance = Double.valueOf(extraInfo);
+        return resistance * noOfItems;
+    }
+
 }
 

@@ -22,6 +22,13 @@ public class StockProgram
 
         Inventory iv = new Inventory(file);
         iv.sortInvent();
+        System.out.println();
+        iv.largestNoComponents();
+        System.out.println();
+        iv.totalResistance();
+        System.out.println();
+        iv.aboveX(10);
     }
+
 
 }

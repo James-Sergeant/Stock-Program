@@ -4,6 +4,7 @@ import com.company.StockItems.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Inventory {
@@ -13,6 +14,7 @@ public class Inventory {
     private ArrayList<IC> icList;
     private ArrayList<Transistor> transistorList;
     private ArrayList<StockItem> stockItemList;
+    private ArrayList<StockItem> stockItemListSorted;
     private File file;
 
     public Inventory(File file)
@@ -23,6 +25,7 @@ public class Inventory {
         icList = new ArrayList<IC>();
         transistorList = new ArrayList<Transistor>();
         stockItemList = new ArrayList<StockItem>();
+        stockItemListSorted = new ArrayList<StockItem>();
 
 
         this.file = file;
@@ -120,14 +123,61 @@ public class Inventory {
     //Task Answers:
     //1:
     public void sortInvent(){
-        System.out.println( MergeSort.sort(stockItemList));
+        stockItemListSorted.addAll(MergeSort.sort(stockItemList));
+        System.out.println(stockItemListSorted);
+    }
+
+    public void  largestNoComponents(){
+      ArrayList<ArrayList> temp = new ArrayList<ArrayList>();
+      ArrayList<StockItem> max = new ArrayList<StockItem>();
+      temp.add(resistorList);
+      temp.add(capacitorList);
+      temp.add(diodeList);
+      temp.add(icList);
+      temp.add(transistorList);
+
+      for(ArrayList i: temp){
+          if(i.size() > max.size()){
+              max.clear();
+              max.addAll(i);
+          }
+      }
+
+      String out = max.get(0).toString();
+      System.out.println("The largest number of components  " +out.split(":")[0]);
+
 
     }
+
     public void getNPN(){
+        int count =0;
         for (Transistor i: transistorList ){
             if(i.getInfo().equals("NPN")){
-                System.out.println(i);
+                count++;
             }
         }
+        System.out.println("There are: "+count+" NPN transistors");
+    }
+
+    public void totalResistance(){
+        double total = 0;
+        for(Resistor i: resistorList){
+           total += i.totalResistnace();
+        }
+        System.out.println("Total Resistance: " + total + "\u03A9");
+    }
+
+    public void aboveX(int x){
+        int count = 0;
+        for(StockItem i: stockItemListSorted){
+            if(i.getPrice() > x){
+                break;
+            }
+            else{
+                count++;
+            }
+        }
+        List<StockItem> out = stockItemListSorted.subList(count, stockItemListSorted.size());
+        System.out.println("Items above " +x+ "p: "+ out.size());
     }
 }

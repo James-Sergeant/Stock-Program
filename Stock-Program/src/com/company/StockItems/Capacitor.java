@@ -11,4 +11,7 @@ public class Capacitor extends StockItem
     public String toString(){
         return this.NAME +": "+ super.toString() + "F \n";
     }
+    public String getName(){
+        return this.NAME;
+    }
 }

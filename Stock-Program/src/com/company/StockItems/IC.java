@@ -11,4 +11,8 @@ public class IC extends StockItem {
     public String toString(){
         return this.NAME +": "+ super.toString() + "\n";
     }
+
+    public String getName(){
+        return this.NAME;
+    }
 }
