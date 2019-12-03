@@ -148,7 +148,7 @@ public class Inventory {
         int count =0;
         for (Transistor i: transistorList ){
             if(i.getInfo().equals("NPN")){
-                count++;
+                count += i.getNumberOfItems();
             }
         }
         System.out.println("There are: "+count+" NPN transistors");
@@ -160,7 +160,7 @@ public class Inventory {
         for(Resistor i: resistorList){
            total += i.totalResistnace();
         }
-        System.out.println("Total Resistance: " + total + "\u03A9");
+        System.out.println("Total Resistance: " + total + " \u03A9");
     }
 
     //5:
