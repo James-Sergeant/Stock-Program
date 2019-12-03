@@ -8,6 +8,7 @@ public class StockItem implements Comparable<StockItem>
     public  StockItem(String stockCode, String noOfItems,String price, String extraInfo)
     {
         this.stockCode = stockCode;
+        //used to catch the possibility of NAN.
         try {
             this.noOfItems = Integer.parseInt(noOfItems);
             this.price = Integer.parseInt(price);
@@ -26,11 +27,20 @@ public class StockItem implements Comparable<StockItem>
     {
         return price;
     }
+
     public String getInfo()
     {
         return extraInfo;
     }
 
+    public int getNumberOfItems(){return noOfItems;}
+
+    public String getId()
+    {
+        return stockCode;
+    }
+
+    //When two stock items are compared it will be based off of the price.
     @Override
     public int compareTo(StockItem i) {
         if(this.getPrice() < i.getPrice()) return -1;

@@ -34,10 +34,12 @@ public class Inventory {
     //Used to read in the file, also calls the createObejct method.
     private void loadFile()
     {
+        //Try catch to prevent crashes on incorrect file paths/non-existence file.
         try
         {
             Scanner sc = new Scanner(System.in);
             sc = new Scanner(file);
+            //For each line in the file a new object is created.
             while (sc.hasNextLine())
             {
                 String temp = sc.nextLine();
@@ -51,6 +53,7 @@ public class Inventory {
             e.printStackTrace();
             System.err.println(file.getAbsolutePath());
         }
+        //Adds each item type to a master list to all processing of the data.
         stockItemList.addAll(resistorList);
         stockItemList.addAll(capacitorList);
         stockItemList.addAll(diodeList);
@@ -62,6 +65,8 @@ public class Inventory {
     private void createObject(String string)
     {
         String type = "", id ="", noOfItems ="", price ="", info="";
+
+        //Converts the string into the attributes for the Object.
         int count =0;
         for(int i = 0; i < string.length(); i++)
         {
@@ -91,10 +96,8 @@ public class Inventory {
                 count++;
             }
 
-            //Coverts the strings to int
-
-
         }
+        //determines the stock item type to place in the correct array list.
         switch(type){
             case "resistor":
                 resistorList.add(new Resistor(id,noOfItems,price,info));
@@ -127,28 +130,20 @@ public class Inventory {
         System.out.println(stockItemListSorted);
     }
 
+    //2:
     public void  largestNoComponents(){
-      ArrayList<ArrayList> temp = new ArrayList<ArrayList>();
-      ArrayList<StockItem> max = new ArrayList<StockItem>();
-      temp.add(resistorList);
-      temp.add(capacitorList);
-      temp.add(diodeList);
-      temp.add(icList);
-      temp.add(transistorList);
-
-      for(ArrayList i: temp){
-          if(i.size() > max.size()){
-              max.clear();
-              max.addAll(i);
+        StockItem max = new StockItem("0","0" ,"0" ,"0");
+        for(StockItem i: stockItemList){
+          if(i.getNumberOfItems() > max.getNumberOfItems()){
+              max = i;
           }
       }
 
-      String out = max.get(0).toString();
-      System.out.println("The largest number of components  " +out.split(":")[0]);
+      System.out.println("The largest number of components  " + max.getId());
 
 
     }
-
+    //3:
     public void getNPN(){
         int count =0;
         for (Transistor i: transistorList ){
@@ -159,6 +154,7 @@ public class Inventory {
         System.out.println("There are: "+count+" NPN transistors");
     }
 
+    //4:
     public void totalResistance(){
         double total = 0;
         for(Resistor i: resistorList){
@@ -167,6 +163,7 @@ public class Inventory {
         System.out.println("Total Resistance: " + total + "\u03A9");
     }
 
+    //5:
     public void aboveX(int x){
         int count = 0;
         for(StockItem i: stockItemListSorted){

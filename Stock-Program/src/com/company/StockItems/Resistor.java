@@ -19,6 +19,7 @@ public static final String NAME = "Resistor";
         return this.NAME;
     }
 
+    //This method just multiples the resistance with the number of items.
     public double totalResistnace(){
         double resistance = Double.valueOf(extraInfo);
         return resistance * noOfItems;

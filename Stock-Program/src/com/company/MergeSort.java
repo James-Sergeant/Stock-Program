@@ -14,6 +14,7 @@ public class MergeSort {
         // if the array is of one or less elements its sorted
         if (arr.size() <= 1) return arr;
 
+        //mid point is Size/2, therefore 1 more than middle index due to 0 indexing.
         int mid = arr.size() /2;
 
         //Creates a left and right branch around the mid point.

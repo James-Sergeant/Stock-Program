@@ -19,14 +19,22 @@ public class StockProgram
     //Creates a array list of items
     public static void main(String[] args)
     {
-
+        //Creates a new inventory for the file.
         Inventory iv = new Inventory(file);
+
+        //Answer to the first requirement.
         iv.sortInvent();
         System.out.println();
+        //Answer to the second requirement.
         iv.largestNoComponents();
         System.out.println();
+        //Answer to the third requirement.
         iv.totalResistance();
         System.out.println();
+        //Answer to the forth requirement.
+        iv.getNPN();
+        System.out.println();
+        //Answer to the last requirement.
         iv.aboveX(10);
     }
 
