@@ -160,7 +160,7 @@ public class Inventory {
         for(Resistor i: resistorList){
            total += i.totalResistnace();
         }
-        System.out.println("Total Resistance: " + total + " \u03A9");
+        System.out.println("Total Resistance: " + total + "Ω"); //The unicode \u03A9 will not work even on UTF-8 in PASS
     }
 
     //5:

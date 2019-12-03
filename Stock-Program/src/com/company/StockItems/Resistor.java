@@ -12,7 +12,7 @@ public static final String NAME = "Resistor";
     @Override
     public String toString()
     {
-        return this.NAME +": "+super.toString() +"\u03A9 \n";
+        return this.NAME +": "+super.toString() +"Ω \n"; //The unicode \u03A9 will not work even on UTF-8 in PASS
     }
 
     public String getName(){
